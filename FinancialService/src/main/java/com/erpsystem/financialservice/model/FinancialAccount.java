@@ -2,13 +2,16 @@ package com.erpsystem.financialservice.model;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
+import java.util.List;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 
-@Entity
+@Entity(name = "financialaccount")
 public class FinancialAccount {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
@@ -18,6 +21,9 @@ public class FinancialAccount {
 	 private String currency;
 	 private BigDecimal balance;
 	 private LocalDate creationDate;
+	  @OneToMany(mappedBy = "account", cascade = CascadeType.ALL, orphanRemoval = true)
+	 private List<Transaction>transactions;
+	 
 	public FinancialAccount() {
 		super();
 	}
