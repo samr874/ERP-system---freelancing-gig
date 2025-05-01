@@ -1,0 +1,14 @@
+package com.erpsystem.financialservice;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+@SpringBootApplication
+public class FinancialServiceApplication {
+
+	public static void main(String[] args) {
+		SpringApplication.run(FinancialServiceApplication.class, args);
+		System.out.print("The financial service is up and running ");
+	}
+
+}
